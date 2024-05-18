@@ -2,9 +2,21 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  template: `
+    <h1>IF Blogları</h1>
+    <button *ngIf="isActive == false" (click)="changeActiveStatus()">
+      Aktif et
+    </button>
+    <br />
+    <br />
+    <button *ngIf="isActive == true" (click)="changeActiveStatus()">
+      Passif et
+    </button>
+  `,
 })
 export class AppComponent {
-  title = 'condition_blogs';
+  isActive: boolean = true;
+  changeActiveStatus() {
+    this.isActive = !this.isActive;
+  }
 }
